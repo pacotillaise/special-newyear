@@ -1,0 +1,23 @@
+﻿.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.phrase-box {
+    width: 200px;
+    height: 200px;
+    background-color: #ffcccc; /* Rose */
+    border-radius: 4%;
+    border: solid 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.illustration {
+    width: 200px;
+    height: 200px;
+}
+

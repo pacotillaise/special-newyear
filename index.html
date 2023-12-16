@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phrase Dynamique</title>
+    <link rel="stylesheet" type="text/css" href="static/styleWebApp.css">
+    <script src="static/js/html2canvas.min.js"></script>
+</head>
+<body>
+    <h1>Toutes les phrases :</h1>
+    <button onclick="captureImage()">Convertir en image</button>
+    <img src="" class="illustration" alt="Image au format png" title="Click droit pour télécharger votre image!" />
+    <div class="container">
+        {% for phrase in phrases %}
+        <div class="phrase-box">
+            <p>{{ phrase.text }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <form action="/ajouter_phrase" method="post">
+        <label id="phraseLabel" for="phrase">Ajouter une nouvelle phrase :</label>
+        <input type="text" id="phrase" name="phrase" required>
+        <input type="submit" value="Ajouter">
+    </form>
+
+  <script>
+      function captureImage() {
+          html2canvas(document.querySelector('.phrase-box:last-child')).then(function (canvas) {
+              var imgData = canvas.toDataURL('image/png');
+              document.querySelector('.illustration').src = imgData;
+          });
+      }
+  </script>
+</body>
+</html>
